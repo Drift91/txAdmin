@@ -209,9 +209,9 @@ if (dataPathVar) {
 //NOTE: Non-ASCII in one of those paths (don't know which) will make NodeJS crash due to a bug in v8 (or something)
 //      when running localization methods like Date.toLocaleString().
 //      There was also an issue with the slash() lib and with the +exec on FXServer
-const nonASCIIRegex = /[^\x00-\x80]+/;
+const nonASCIIRegex = /[^\x00-\x80]+/g;
 const colorNonAscii = (x: string) => chalk.black.bgGreenBright(
-    x.replace(nonASCIIRegex, (m) => chalk.bgRedBright(m))
+    x.replaceAll(nonASCIIRegex, (m) => chalk.bgRedBright(m))
 );
 if (nonASCIIRegex.test(fxsPath) || nonASCIIRegex.test(dataPath)) {
     fatalError.GlobalData(7, [
