@@ -62,7 +62,7 @@ export default class AdminStore {
             'server.cfg.editor': 'Read/Write server.cfg', //FIXME: rename to server.cfg_editor
             'txadmin.log.view': 'View System Logs', //FIXME: rename to system.log.view
             'server.log.view': 'View Server Logs',
-            'players.remove_data': 'Remove Player Data',
+            'players.remove_data': 'Remove Player IDs', //FIXME: rename to players.remove_ids
 
             'menu.vehicle': 'Spawn / Fix Vehicles',
             'menu.clear_area': 'Reset world area',
