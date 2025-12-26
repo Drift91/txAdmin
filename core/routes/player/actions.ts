@@ -293,7 +293,7 @@ async function handleRemoveIds(ctx: AuthedCtx, player: PlayerClass): Promise<Gen
     const { ids: idsToDelete } = schemaRes.data;
 
     //Check permissions
-    if (!ctx.admin.testPermission('players.remove_data', modulename)) {
+    if (!ctx.admin.testPermission('players.remove_ids', modulename)) {
         return { error: 'You don\'t have permission to execute this action.' }
     }
 

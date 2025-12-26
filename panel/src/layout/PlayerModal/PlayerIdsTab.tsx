@@ -16,7 +16,7 @@ type PlayerIdsTabProps = {
 
 export default function PlayerIdsTab({ playerRef, player, refreshModalData }: PlayerIdsTabProps) {
     const { hasPerm } = useAdminPerms();
-    const hasRemovePerms = useMemo(() => hasPerm('players.remove_data'), [hasPerm]);
+    const hasRemovePerms = useMemo(() => hasPerm('players.remove_ids'), [hasPerm]);
     const removePlayerIdsApi = useBackendApi<GenericApiOkResp>({
         method: 'POST',
         path: `/player/removeIds`,
