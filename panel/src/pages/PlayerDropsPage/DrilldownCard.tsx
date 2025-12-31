@@ -11,6 +11,7 @@ import DrilldownOverviewSubcard from "./DrilldownOverviewSubcard";
 import { DisplayLodType, DrilldownRangeSelectionType } from "./PlayerDropsPage";
 import InlineCode from "@/components/InlineCode";
 import DrilldownResourcesSubcard from "./DrilldownResourcesSubcard";
+import { DynamicNewItem } from "@/components/DynamicNewBadge";
 
 
 export function DrilldownCardLoading({ isError }: { isError?: boolean }) {
@@ -113,6 +114,9 @@ const DrilldownCardInner = function DrilldownCard({
                         <div className="flex items-center space-x-2">
                             <div className='hidden xs:block'><ShapesIcon className="size-4" /></div>
                             <h2 className="font-mono text-sm">Environment Changes</h2>
+                            <DynamicNewItem featName="playerDropsEnvChangesReversed" durationDays={14}>
+                                <span className="text-2xs text-warning-inline/80">Note: This list now shows the most recent changes first.</span>
+                            </DynamicNewItem>
                         </div>
                     </div>
                     <DrilldownChangesSubcard changes={windowData.changes} />
