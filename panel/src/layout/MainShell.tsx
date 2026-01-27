@@ -97,6 +97,11 @@ export default function MainShell() {
             <ActionModal />
             <MainSocket />
             {/* <BreakpointDebugger /> */}
+
+            {/* 1080p monitor screen height indicator */}
+            {/* <div className="fixed inset-0 select-none pointer-events-none z-50">
+                <div className="mx-auto h-[932px] w-[1920px] border-b-[1px] border-red-500/50" />
+            </div> */}
         </TooltipProvider>
     </>;
 }

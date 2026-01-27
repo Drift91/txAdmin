@@ -22,7 +22,8 @@ type MarkdownProseProps = {
     className?: string;
 };
 export default function MarkdownProse({ md, isSmall, isTitle, isToast, className }: MarkdownProseProps) {
-    //FIXME: the \n replacer should ignore code blocks
+    //FIXME: the \n replacer should ignore code blocks, example:
+    // md = '```\naaa\nbbb\nccc\n```';
     return (
         <Markdown
             components={customComponents}

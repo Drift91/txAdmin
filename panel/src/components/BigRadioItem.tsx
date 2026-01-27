@@ -1,13 +1,13 @@
 import { useId } from "react";
 import { Label } from "./ui/label";
 import { RadioGroupItem } from "./ui/radio-group";
-import { cn } from "@/lib/utils";
-import { RadioGroupIndicator } from "@radix-ui/react-radio-group";
+import { DynamicNewBadge } from "./DynamicNewBadge";
 
 type BigRadioItemProps = {
     value: string;
     title: string;
     desc: React.ReactNode;
+    newOptionBadgeFeatName?: string;
     groupValue: string | undefined;
 }
 
@@ -22,7 +22,17 @@ export default function BigRadioItem(props: BigRadioItemProps) {
             >
                 <RadioGroupItem value={props.value} id={radioId} />
                 <div className="space-y-1">
-                    <span className="font-bold">{props.title}</span>
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold">{props.title}</span>
+                        {props.newOptionBadgeFeatName && (
+                            <DynamicNewBadge
+                                featName={props.newOptionBadgeFeatName}
+                                className="pb-1 pt-0.5"
+                                size="md"
+                                durationDays={28} //4 weeks
+                            />
+                        )}
+                    </div>
                     <p className="text-sm text-muted-foreground">{props.desc}</p>
                 </div>
             </Label>

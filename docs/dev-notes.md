@@ -8,6 +8,17 @@ Legend:
 - Search for all FIXME:REMOVE:NEXT:UPDATE
 - Re-enable diagnostics report
 
+
+## Newer TODOs
+- [ ] be able to VIEW your own permissions on the admins page 
+- [ ] save a log of the previous server data paths
+- [ ] Use [GetPlayerPeerStatistics](https://docs.fivem.net/natives/?_0x9A928294) somewhere
+- [ ] Be able to set a nickname to a player
+    - Ref: https://discord.com/channels/577993482761928734/1459523232163041464/1459523232163041464
+- [?] Check: E:\TMP\test-cache-size\index.ts
+    - I don't recall what is that tho 🤷‍♀️
+    - Maybe a way to show to the users the size of their assets
+
 ## Feat
 - [x] Option to delete player identifiers
     - Ref: https://github.com/tabarra/txAdmin/issues/751
@@ -282,6 +293,7 @@ https://tailwindcss.com/blog/automatic-class-sorting-with-prettier
 - [ ] live console
     - [ ] if socket connects but no data received, add a warning to the console and wipe it after first write
     - [ ] persistent cls via ts offsets
+        - make sure it accounts for empty lines created by pressing enter on empty input
     - [ ] improve the bufferization to allow just loading most recent "block" and loading prev blocks via button
     - [ ] console nav button to jump to server start or errors? 
         - Or maybe filter just error lines (with margin)
