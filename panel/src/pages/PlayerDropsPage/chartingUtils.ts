@@ -5,6 +5,14 @@ import { DisplayLodType } from "./PlayerDropsPage";
 
 export type PlayerDropsCategoryCount = [category: string, count: number];
 
+// Helper function to floor a date to the start of the day
+const floorToStartOfDay = (dateString: string) => {
+    const date = new Date(dateString);
+    date.setHours(0, 0, 0, 0);
+    return date.toISOString();
+};
+
+
 /**
  * Processes the player drops summary api data to return the data for the timeline chart.
  * 
@@ -31,17 +39,22 @@ export const processDropsSummary = (apiData: PlayerDropsSummaryHour[], displayLo
         let currDayData: PlayerDropsSummaryHour | undefined;
         for (const hourData of windowData) {
             const hourDayOfMonth = (new Date(hourData.hour)).getDate();
+            const hourDayStart = floorToStartOfDay(hourData.hour);
             if (!currDayData) {
                 currDayOfMonth = hourDayOfMonth;
                 currDayData = {
-                    hour: hourData.hour,
+                    hour: hourDayStart,
                     changes: 0,
                     dropTypes: [],
                 };
             } else if (hourDayOfMonth !== currDayOfMonth) {
                 binnedData.push(currDayData);
                 currDayOfMonth = hourDayOfMonth;
-                currDayData = structuredClone(hourData);
+                currDayData = {
+                    hour: hourDayStart,
+                    changes: hourData.changes,
+                    dropTypes: structuredClone(hourData.dropTypes),
+                };
                 continue;
             }
 

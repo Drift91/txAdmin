@@ -163,6 +163,7 @@ export default function drawDropsTimeline({
         ctx.setLineDash([]);
 
         //Drawing the timeline
+        let barsRendered = 0;
         ctx.lineWidth = 1;
         for (const intervalData of data.log) {
             const baseX = timeScale(intervalData.startDate);
@@ -173,6 +174,7 @@ export default function drawDropsTimeline({
             const renderOffsetX = baseX - renderStartX;
             const barWidth = Math.round(intervalWidth + renderOffsetX) + 1 - barCenterOffset - barPadding;
             if (barWidth < 1) continue;
+            barsRendered++;
 
             //Draw the count blocks
             let dropSum = 0;
@@ -221,6 +223,7 @@ export default function drawDropsTimeline({
         }
         if (isFirstRender) {
             console.timeEnd('drawing canvas timeline');
+            console.log('Bars rendered:', barsRendered);
         }
     }
     drawCanvasTimeline();
@@ -400,8 +403,9 @@ export default function drawDropsTimeline({
             wasTransitionDisabled = true;
         }
         const legendWidth = legendRef.clientWidth;
-        let legendX = datumStartX - legendWidth - 10 + margins.left;
-        if (legendX < margins.left) legendX = datumStartX + 10 + margins.left;
+        const legendOffset = 36;
+        let legendX = datumStartX - legendWidth - legendOffset + margins.left;
+        if (legendX < margins.left) legendX = datumStartX + legendOffset + margins.left;
         legendRef.style.left = `${legendX}px`;
         legendRef.style.opacity = '1';
         if (wasTransitionDisabled) {
@@ -468,7 +472,7 @@ export default function drawDropsTimeline({
 
     // Handle svg mouse events
     let isEventInCooldown = false;
-    const cooldownTime = 20;
+    const cooldownTime = 75;
     chartGroup.on('mousemove', function (event) {
         const [pointerX] = d3.pointer(event);
         if (!isEventInCooldown) {
