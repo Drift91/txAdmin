@@ -55,7 +55,7 @@ export default function DiagnosticsPage() {
                             Support Team. <br />
                             After that, share the report ID with the support team in <TxAnchor
                                 href="https://discord.gg/uAmsGa2"
-                                className="m-0 font-semibold tracking-wide text-primary"
+                                className="font-semibold tracking-wide text-primary"
                             >
                                 discord.gg/txAdmin
                             </TxAnchor>.

@@ -308,13 +308,29 @@ export default function TmpLibraryShowcase() {
 
                 <div className="space-y-4">
                     <h3 className="text-lg font-medium">TxAnchor</h3>
-                    <p className="text-sm">
+                    <p className="text-muted-foreground">
                         Smart anchor component that handles internal navigation and external links properly.
-                        External links open in a new tab with an icon: <TxAnchor href="https://github.com/tabarra/txAdmin">txAdmin GitHub</TxAnchor>
                     </p>
-                    <p className="text-sm">
-                        Internal links use wouter navigation: <TxAnchor href="/players">Players Page</TxAnchor>
-                    </p>
+
+                    <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">Normal text size:</h4>
+                        <p>
+                            Lorem ipsum dolor <TxAnchor href="/players">Example</TxAnchor>: internal link.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor <TxAnchor href="https://github.com/tabarra/txAdmin">Example</TxAnchor>: external link.
+                        </p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">Small text size (text-sm):</h4>
+                        <p className="text-sm">
+                            Lorem ipsum dolor <TxAnchor href="/dashboard">Example</TxAnchor>: internal link.
+                        </p>
+                        <p className="text-sm">
+                            Lorem ipsum dolor <TxAnchor href="https://discord.gg/txAdmin">Example</TxAnchor>: external link.
+                        </p>
+                    </div>
                 </div>
             </section>
 

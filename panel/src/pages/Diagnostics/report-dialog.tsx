@@ -105,7 +105,7 @@ const SuccessContent = ({ reportId }: { reportId: string }) => (
         <p className="text-muted-foreground pt-2">
             Please send this ID to the support team in <TxAnchor
                 href="https://discord.gg/uAmsGa2"
-                className="m-0 font-semibold tracking-wide text-primary"
+                className="font-semibold tracking-wide text-primary"
             >
                 discord.gg/txAdmin
             </TxAnchor>.
