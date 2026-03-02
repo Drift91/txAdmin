@@ -53,6 +53,17 @@ const ctxVarsMw = (ctx: CtxWithSession, next: Next) => {
             }
         }
     }
+	//Use 'X-Forwarded-For' header for reverse proxy on local system
+    if (
+        typeof ctx.headers['x-forwarded-for'] === 'string'
+        && txVars.isLocalRequest
+    ) {
+        const srcIP = ctx.headers['x-forwarded-for'];
+        if (consts.regexValidIP.test(srcIP)) {
+            txVars.realIP = srcIP;
+            txVars.hostType = 'ip';
+        }
+    }
 
     //Injecting vars and continuing
     ctx.txVars = txVars;
