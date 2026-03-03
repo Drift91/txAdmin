@@ -67,7 +67,7 @@ export default class WebServer {
 
         // Some people might want to enable it, but we are not guaranteeing XFF security
         // due to the many possible ways you can connect to koa.
-        // this.app.proxy = true;
+        this.app.proxy = true;
 
         //Setting up app
         //@ts-ignore: no clue what this error is, but i'd bet it's just bad koa types
